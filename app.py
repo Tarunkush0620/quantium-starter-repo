@@ -1,8 +1,7 @@
-"""Repo-level entry point.
-Runs the Dash app defined in data/app.py so `python app.py` works.
+"""Repo-level app module.
+Exposes `app` for tests and runs the server when executed directly.
 """
-import runpy
+from data.app import app  # Dash instance
 
 if __name__ == "__main__":
-    # Execute the app script as if run directly
-    runpy.run_path("data/app.py", run_name="__main__")
+    app.run(debug=True, host="127.0.0.1", port=8050, use_reloader=False)
